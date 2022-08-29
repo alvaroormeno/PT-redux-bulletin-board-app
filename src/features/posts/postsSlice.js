@@ -21,4 +21,7 @@ const postsSlice = createSlice({
   }
 })
 
+// Create selector to export and be used in components, this way if the state ever changed we only need to change this selector and not the selector inside every component.
+export const selectAllPosts = (state) => state.posts;
+
 export default postsSlice.reducer
