@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import PostAuthor from './PostAuthor'
 
 // Import selector
 import { selectAllPosts } from './postsSlice'
@@ -16,6 +17,9 @@ const PostsList = () => {
       <h3>{post.title}</h3>
       {/* With substring we are getting the first 100 characters of the post, in other words a preview of the post content. */}
       <h3>{post.content.substring(0, 100)}</h3>
+      <p className='postCredit'>
+        <PostAuthor userId={post.userId} />
+      </p>
     </article>
   ))
 
