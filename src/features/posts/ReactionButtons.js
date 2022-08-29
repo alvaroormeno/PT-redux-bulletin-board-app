@@ -34,7 +34,7 @@ const ReactionButtons = ({post }) => {
   })
 
   return (
-    <div>{reactionButtons}</div>
+    <div>{reactionButtons}</div> 
   )
 }
 
