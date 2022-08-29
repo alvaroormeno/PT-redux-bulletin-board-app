@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
+
 
 const initialState = [
   {
@@ -13,12 +14,34 @@ const initialState = [
   }
 ]
 
+// Create the Counter Slice with 3 parameters
 const postsSlice = createSlice({
+  // Parameter 1 -> Slice name, used in action types
   name: 'posts',
+  // Parameter 2 -> The iniitial state for the reducer
   initialState,
+  // Parameter 3 -> Reducers object of "case reducers" / Here we name our different actions/reducer functions 
   reducers: {
-    postAdded(state, action) {
-      state.push(action.payload)
+    //OPTION 1
+    // postAdded(state, action) {
+    //   state.push(action.payload)
+    // }
+
+    // OPTION 2 - postAdded reducer function
+    postAdded: {
+      reducer(state, action) {
+        state.push(action.payload)
+      },
+      //Prepare Callback function
+      prepare(title, content) {
+        return {
+          payload: {
+            id: nanoid(),
+            title,
+            content
+          }
+        }
+      }
     }
   }
 })

@@ -7,6 +7,7 @@ import { postAdded } from './postsSlice'
 
 
 const AddPostForm = () => {
+  const dispatch = useDispatch()
 
   // States
   const [title, setTitle] = useState('')
