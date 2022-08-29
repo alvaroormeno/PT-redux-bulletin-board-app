@@ -1,9 +1,13 @@
 import React from 'react'
 
+// Import selector
+import { selectAllPosts } from './postsSlice'
+
 const PostsList = () => {
 
   // Use useSelector to select our initial state and save it to posts variable
-  const posts = useSelector(state => state.posts)
+  // Instead of using this: const posts = useSelector(state => state.posts), we created a selector inside postsSlice which we imported for best practice if we ever change the state inside postsSlice.js
+  const posts = useSelector(selectAllPosts)
 
   //Map posts variable whis has the posts data from initial state
   const renderedPosts = posts.map(post => (
