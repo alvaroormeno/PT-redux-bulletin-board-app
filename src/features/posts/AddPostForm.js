@@ -22,14 +22,21 @@ const AddPostForm = () => {
   }
 
   const onSavePostClicked = () => {
+    
     if(title && content) {
-      dispatch( postAdded({
-          id: nanoid(),
-          title,
-          content
-        })
-      )
+      dispatch( 
+        // OPTION 1 
+        // postAdded({
+        //   id: nanoid(),
+        //   title,
+        //   content
+        // }) 
 
+        // OPTION 2
+        postAdded(title, content)
+      )
+      
+      // Reset States
       setTitle("");
       setContent("");
     }
